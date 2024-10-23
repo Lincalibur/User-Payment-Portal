@@ -1,23 +1,33 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path'); // Add this line to use path module
+
 const app = express();
-const port = 5222;
+app.use(bodyParser.json());
+app.use(express.static('public')); // Serve static files from the 'public' directory
 
-// Middleware to parse JSON requests
-app.use(express.json());
-
-// Serve static files from the public directory
-app.use(express.static('public'));
-
-// Example payment endpoint
-app.post('/api/payments', (req, res) => {
-    const { amount } = req.body;
-
-    // Here you can implement your payment processing logic
-    // For demonstration, we just return a success message
-    res.json({ message: `Payment of ${amount} received successfully!` });
+// Serve login.html when the root URL is accessed
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html')); // Update the path as necessary
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+// Dummy user data for validation
+const users = [
+    { username: 'admin', password: 'admin' },
+    { username: 'user2', password: 'password2' }
+];
+
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(user => user.username === username && user.password === password);
+    
+    if (user) {
+        return res.json({ success: true });
+    }
+    return res.json({ success: false });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
