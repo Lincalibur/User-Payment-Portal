@@ -3,10 +3,10 @@ name: CI Workflow
 on:
   push:
     branches:
-      - main  
+      - main  # Change this if your default branch is different
   pull_request:
     branches:
-      - main  
+      - main  # Change this if your default branch is different
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '20'  # Specify the Node.js version you want
 
     - name: Install dependencies
       run: npm install
@@ -33,4 +33,4 @@ jobs:
     - name: List files and directories
       run: |
         echo "Folder structure:"
-        ls -R
+        ls -R --ignore='node_modules'
