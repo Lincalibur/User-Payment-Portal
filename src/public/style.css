@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('media/oliver-pecker-HONJP8DyiSM-unsplash.jpg'); /* Use forward slashes */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the image */
+    background-color: #f4f4f4;
+    background-image: url('media/oliver-pecker-HONJP8DyiSM-unsplash.jpg');
+    background-size: cover; /* Ensure the background image covers the entire body */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,13 +10,17 @@ body {
     margin: 0;
 }
 
-.login-container {
-    background: rgba(255, 255, 255, 0.75); /* White background with 90% opacity */
-    padding: 20px;
+.container {
+    max-width: 400px; /* Adjust the width as necessary */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 400px; /* Optional: Limit the width of the container */
-    width: 100%; /* Full width for responsiveness */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-container, .register-container {
+    margin-bottom: 20px; /* Add some space between the forms */
 }
 
 h2 {
@@ -29,7 +33,7 @@ label {
 }
 
 input {
-    width: 95%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -50,8 +54,7 @@ button:hover {
     background-color: #4cae4c;
 }
 
-#message {
+#login-message, #register-message {
     margin-top: 15px;
-    color: rgb(88, 9, 9);
-    text-shadow: 0 0 5px rgba(0,0,0,0.1);
+    color: red;
 }
