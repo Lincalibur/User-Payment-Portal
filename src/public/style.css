@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    background-image: url('media/oliver-pecker-HONJP8DyiSM-unsplash.jpg'); /* Ensure correct path */
+    background-image: url('media/oliver-pecker-HONJP8DyiSM-unsplash.jpg');
     background-size: cover; /* Ensure the background image covers the entire body */
     display: flex;
     justify-content: center;
